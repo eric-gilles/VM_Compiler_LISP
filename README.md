@@ -32,7 +32,7 @@ clisp
 ```
 ### Alternative Replit :
 1. Se connecter à Replit : https://replit.com/login
-2. Fork le projet via ce <a href=https://replit.com/@eric-gilles/ProjetCompil#README.md>lien</a>
+2. Fork le projet via ce <a href=https://replit.com/@eric-gilles/ProjetCompil>lien</a>
 3. Lancer en appuyant sur **RUN** en haut de votre projet
 
 
