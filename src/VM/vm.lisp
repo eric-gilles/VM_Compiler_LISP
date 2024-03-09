@@ -1,11 +1,11 @@
 (require "instructions.lisp")
-(load "compilation/compiler.lisp")
-;; Registers : R0, R1, R2, BP, SP, PC, FP (General Register R0, R1 and R2)
+(load "src/compilation/compiler.lisp")
+;; Registres : R0, R1, R2, BP, SP, PC, FP (General Register R0, R1 and R2)
 ;; (SP Stack Pointer) (PC) (FP Frame Pointer)
 ;; Flags : FLT, FEQ, FGT (Flag less than, Flag equal, Flag greater than) 
 
-;; Create VM
-(defun vm_make (&optional (vm_name 'COMPIL_LE_FUN) (memory_size 1000000))
+;; Creation de la VM
+(defun vm_make (&optional (vm_name 'MY_VM) (memory_size 1000000))
   (setf (get vm_name :vm_name) vm_name)
   (setf (get vm_name :R0) 0)
   (setf (get vm_name :R1) 0)
@@ -25,10 +25,10 @@
   (vm_set_mem vm_name (vm_get_low_variable vm_name 'START_CODE) (get vm_name :PC))
   (vm_set_mem vm_name (vm_get_low_variable vm_name 'LAST_CODE) (get vm_name :PC))
 
-  (format t "Initialisation de VM Name: ~a~%" vm_name)
+  
+  (format t "~%Initialisation de la VM : ~a~%" vm_name)
   vm_name
 )
-;; TABLE d'ASSOCIATION (BP Base Pointer) (LTI LOADER_TABLE_IN) (LTO LOADER_TABLE_OUT)
 
 
 (defun vm_exec_jne (vm_name adr)
@@ -38,9 +38,7 @@
 )
 
 
-
-
-
+;; Éxécution
 (defun vm_exec (vm_name)
   (let ((start-time (get-internal-real-time))
   (end-time nil))
@@ -116,7 +114,7 @@
   )
 )
 
-
+;; Charge Code
 (defun vm_load (vm_name code-list)
   (let* ((taille (length code-list)))
     (loop for i from 0 below taille do
@@ -136,7 +134,7 @@
   (format t "~%Chargement du code dans ~a terminé.~%" vm_name)
 )
 
-
+;; Charge Fichier de Code
 (defun vm_load_file (vm_name file) ;; file est écrit en ASSEMBLEUR mais en Lisp donc sous forme de liste
   (let ((program-lines '()))
     (with-open-file (stream file :direction :input)
@@ -153,11 +151,11 @@
   )
 )
 
-(defun vm_CL (vm_name codeLisp) ;; Compile & Load
+(defun vm_CL (vm_name codeLisp) ;; Compile & Charge
   (vm_load vm_name (compile codeLisp))
 )
 
-(defun vm_CLE (vm_name codeLisp) ;; Compile & Load & Execute
+(defun vm_CLE (vm_name codeLisp) ;; Compile & Charge & Éxecute
   (vm_CL vm_name codeLisp)
   (vm_exec vm_name)
 )

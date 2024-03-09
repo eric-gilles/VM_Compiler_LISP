@@ -1,4 +1,5 @@
 ;; fibo.lisp
+;; Code de la fonction Fibonacci
 (defun fibo (n) 
   (if (= 0 n) 
     0 

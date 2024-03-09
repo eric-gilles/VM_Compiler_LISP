@@ -1,4 +1,3 @@
-
 ;; Memory Management
 (defun vm_get_mem (vm_name adr)
   (if (numberp adr)
@@ -45,6 +44,7 @@
   )
 )
 
+;; Label Management
 (defun vm_get_label(vm_name label)
   (gethash label (vm_get_mem vm_name (vm_get_low_variable vm_name 'LABELS)))
 )

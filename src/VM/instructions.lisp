@@ -162,7 +162,7 @@
 )
 
 ;; POP
-(defun vm-pop(vm dest);;ok
+(defun vm-pop(vm dest)
 
 	(vm-load vm :SP dest)
 	(vm-decr vm :SP)
@@ -289,7 +289,7 @@
   )
 )
   
-;; ;; INSTRUCTIONS DIVERSES
+;; INSTRUCTIONS DIVERSES
 
 (defun vm-nop (vm)
 		;; nothing

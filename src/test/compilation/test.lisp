@@ -1,3 +1,6 @@
+;; TESTS
+
+;; Test de la fonction Factorielle
 (defun testFact (vm n r)
     (vm_CL vm '(defun fact (n) 
                 (if (<= n 1) 
@@ -15,7 +18,7 @@
 )
 
 
-         
+;; Test de la fonction Fibonnacci      
 (defun testFibo (vm n r)
   (vm_CL vm '(defun fibo (n) 
                (if (= 0 n) 
