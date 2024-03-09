@@ -1,0 +1,7 @@
+(require "case/literals.lisp")
+(require "case/operators.lisp")
+(require "case/booleans.lisp")
+(require "case/conditions.lisp")
+(require "case/loop.lisp")
+(require "case/functions.lisp")
+(require "case/variables.lisp")

@@ -1,0 +1,20 @@
+;; Compilation des opérateurs arithmétiques (+, -, *, /)
+(defun compile-operator (exp env fenv nomf)
+  
+  (let ((op (car exp)) (arg (cdr exp)))
+    (append
+       (compile (car arg) env fenv nomf)
+      '((PUSH :R0))
+      (compile (cadr arg) env fenv nomf)
+      '((PUSH :R0))
+      '((POP :R1))
+      '((POP :R0))    
+      (cond
+        ((eq op '+) '((ADD :R1 :R0)))
+        ((eq op '-) '((SUB :R1 :R0)))
+        ((eq op '*) '((MULT :R1 :R0)))
+        ((eq op '/) '((DIV :R1 :R0)))
+      )
+    )
+  )
+)
