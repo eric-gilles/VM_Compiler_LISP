@@ -32,8 +32,8 @@ clisp
 ```
 ### Alternative Replit :
 1. Se connecter à Replit : https://replit.com/login
-2. Fork le projet via ce <a href=https://replit.com/@eric-gilles/ProjetCompil>lien</a>
-3. Lancer en appuyant sur **RUN** en haut de votre projet
+2. Fork le projet via ce <a href="https://replit.com/@eric-gilles/ProjetCompil?v=1">lien</a>. Cliquer sur **Fork & Run**.
+3. Lancer en appuyant sur **RUN** en haut de votre projet.
 
 
 ## Auteurs
